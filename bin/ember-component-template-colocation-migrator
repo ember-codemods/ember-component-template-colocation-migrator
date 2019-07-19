@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+'use strict';
+
+// Provide a title to the process in `ps`
+process.title = 'ember-component-template-colocation-migrator';
+
+let fs = require('fs');
+let Migrator = require('../lib/migrator');
+let nopt = require("nopt");
+let options = {
+  'project-root': [String]
+};
+
+let parsed = nopt(options);
+let projectRoot = parsed['project-root'] || process.cwd();
+
+let migrator = new Migrator({ projectRoot });
+
+migrator.execute().then(function() {
+  console.log('Codemod finished successfully!');
+}).catch(function(error) {
+  console.error(error.stack);
+});
