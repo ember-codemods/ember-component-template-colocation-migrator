@@ -13,7 +13,7 @@ To run the migrator on your app:
 
 ```sh
 cd your/project/path
-npx github:/ember-codemods/ember-component-template-colocation-migrator
+npx github:ember-codemods/ember-component-template-colocation-migrator
 ```
 
 ### Running Tests
