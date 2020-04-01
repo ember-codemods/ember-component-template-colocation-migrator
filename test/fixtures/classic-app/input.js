@@ -8,6 +8,10 @@ module.exports = {
         nested2: {
           'super-nested-component.js': '// nested1/nested2/super-nested-component.js',
         }
+      },
+      'layout-name': {
+        'has-layout-name.js': `// top-level-component.js
+        Component.extend({ layoutName: "components/layout-name/layout-name-template" });`,
       }
     },
     templates: {
@@ -19,6 +23,14 @@ module.exports = {
           nested2: {
             'super-nested-component.hbs': '{{!-- nested1/nested2/super-nested-component.hbs --}}'
           }
+        },
+        'layout-name': {
+          'layout-name-template.hbs': '{{!-- layout-name-template.hbs --}}',
+        },
+        'partials': {
+          'partials-template.hbs': '{{!-- partials-template.hbs --}}',
+          'with-partial.hbs': `{{!-- with-partial.hbs --}}
+          {{partial 'components/partials/partials-template'}}`,
         }
       }
     }
