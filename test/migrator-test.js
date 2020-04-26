@@ -38,7 +38,10 @@ describe("Migrator", function() {
       fixturify.writeSync(tmpPath, input);
 
       var migratorOptions = Object.assign(
-        { projectRoot: tmpPath },
+        {
+          projectRoot: tmpPath,
+          newComponentStructure: 'flat'
+        },
         migratorConfig
       );
 

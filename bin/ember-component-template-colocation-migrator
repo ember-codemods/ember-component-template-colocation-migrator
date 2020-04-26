@@ -14,7 +14,12 @@ let options = {
 let parsed = nopt(options);
 let projectRoot = parsed['project-root'] || process.cwd();
 
-let migrator = new Migrator({ projectRoot });
+let newComponentStructure = 'flat';
+
+let migrator = new Migrator({
+  projectRoot,
+  newComponentStructure
+});
 
 migrator.execute().then(function() {
   console.log('Codemod finished successfully!');
