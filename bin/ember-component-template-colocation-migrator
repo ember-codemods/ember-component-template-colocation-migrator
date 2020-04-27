@@ -20,20 +20,17 @@ const { argv } = require('yargs');
 const changeToFlatStructure = argv.f && argv.s;
 const changeToNestedStructure = argv.n && argv.s;
 
-let newComponentStructure = 'flat';
+let structure = 'flat';
 
 if (changeToFlatStructure) {
-  newComponentStructure = 'flat';
+  structure = 'flat';
 
 } else if (changeToNestedStructure) {
-  newComponentStructure = 'nested';
+  structure = 'nested';
 
 }
 
-let migrator = new Migrator({
-  projectRoot,
-  newComponentStructure
-});
+let migrator = new Migrator({ projectRoot, structure });
 
 migrator.execute().then(function() {
   console.log('Codemod finished successfully!');
