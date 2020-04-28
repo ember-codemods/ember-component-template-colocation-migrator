@@ -66,10 +66,15 @@ module.exports = {
 
         // A partial template
         'partials': {
-          'partials-template.hbs': '{{!-- partials-template.hbs --}}',
+          'partial-one-template.hbs': '{{!-- partial-one-template.hbs --}}',
+          'partial-two-template.hbs': '{{!-- partial-two-template.hbs --}}',
+          '-partial-three-template.hbs': '{{!-- partial-three-template.hbs --}}',
+
           'with-partial.hbs': [
             '{{!-- with-partial.hbs --}}',
-            '{{partial "components/partials/partials-template"}}'
+            '{{partial "components/partials/partial-one-template"}}',
+            '{{partial "components/partials/partial-two-template"}}',
+            '{{partial "components/partials/partial-three-template"}}'
           ].join('\n')
         }
       }
