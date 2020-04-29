@@ -14,23 +14,23 @@ let options = {
 let parsed = nopt(options);
 let projectRoot = parsed['project-root'] || process.cwd();
 
-const args = process.argv.slice(2);
+const { argv } = require('yargs');
 
 // Allow passing the flag, -fs (flat) or -ns (nested), to specify component structure
-let newComponentStructure = 'flat';
+const changeToFlatStructure = argv.f && argv.s;
+const changeToNestedStructure = argv.n && argv.s;
 
-if (args.includes('-fs')) {
-  newComponentStructure = 'flat';
+let structure = 'flat';
 
-} else if (args.includes('-ns')) {
-  newComponentStructure = 'nested';
+if (changeToFlatStructure) {
+  structure = 'flat';
+
+} else if (changeToNestedStructure) {
+  structure = 'nested';
 
 }
 
-let migrator = new Migrator({
-  projectRoot,
-  newComponentStructure
-});
+let migrator = new Migrator({ projectRoot, structure });
 
 migrator.execute().then(function() {
   console.log('Codemod finished successfully!');

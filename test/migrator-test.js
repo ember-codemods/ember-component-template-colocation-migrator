@@ -10,7 +10,7 @@ var Migrator = require('../lib/migrator');
 assertDiff.options.strict = true;
 
 describe("Migrator", function() {
-  describe('newComponentStructure = flat', function() {
+  describe('structure = flat', function() {
     var tmpPath = "tmp/process-files";
     var fixturesPath = path.resolve(__dirname, "fixtures/classic-to-flat");
 
@@ -41,7 +41,7 @@ describe("Migrator", function() {
         var migratorOptions = Object.assign(
           {
             projectRoot: tmpPath,
-            newComponentStructure: 'flat'
+            structure: 'flat'
           },
           migratorConfig
         );
@@ -59,7 +59,7 @@ describe("Migrator", function() {
   });
 
 
-  describe('newComponentStructure = nested', function() {
+  describe('structure = nested', function() {
     var tmpPath = "tmp/process-files";
     var fixturesPath = path.resolve(__dirname, "fixtures/classic-to-nested");
 
@@ -90,7 +90,7 @@ describe("Migrator", function() {
         var migratorOptions = Object.assign(
           {
             projectRoot: tmpPath,
-            newComponentStructure: 'nested'
+            structure: 'nested'
           },
           migratorConfig
         );
