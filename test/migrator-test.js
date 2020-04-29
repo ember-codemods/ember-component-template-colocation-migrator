@@ -10,47 +10,100 @@ var Migrator = require('../lib/migrator');
 assertDiff.options.strict = true;
 
 describe("Migrator", function() {
-  var tmpPath = "tmp/process-files";
-  var fixturesPath = path.resolve(__dirname, "fixtures");
+  describe('structure = flat', function() {
+    var tmpPath = "tmp/process-files";
+    var fixturesPath = path.resolve(__dirname, "fixtures/classic-to-flat");
 
-  beforeEach(function() {
-    fse.mkdirsSync(tmpPath);
+    beforeEach(function() {
+      fse.mkdirsSync(tmpPath);
+    });
+
+    afterEach(function() {
+      fse.removeSync(tmpPath);
+    });
+
+    var entries = fse.readdirSync(fixturesPath);
+
+    entries.forEach(async function(entry) {
+      it(`should migrate ${entry} fixture properly`, async function() {
+        var fixturePath = path.join(fixturesPath, entry);
+        var input = require(fixturePath + "/input");
+        var expected = require(fixturePath + "/output");
+        var migratorConfig = {};
+        try {
+          migratorConfig = require(fixturePath + "/config");
+        } catch (e) {
+          // fixture uses default config...
+        }
+
+        fixturify.writeSync(tmpPath, input);
+
+        var migratorOptions = Object.assign(
+          {
+            projectRoot: tmpPath,
+            structure: 'flat'
+          },
+          migratorConfig
+        );
+
+        var migrator = new Migrator(migratorOptions);
+        await migrator.execute();
+
+        var actual = fixturify.readSync(tmpPath);
+        assertDiff.deepEqual(actual, expected, "the codemod should work as expected");
+
+        await migrator.execute();
+        assertDiff.deepEqual(actual, expected, "the codemod should be idempotent");
+      });
+    });
   });
 
-  afterEach(function() {
-    fse.removeSync(tmpPath);
-  });
 
-  var entries = fse.readdirSync(fixturesPath);
+  describe('structure = nested', function() {
+    var tmpPath = "tmp/process-files";
+    var fixturesPath = path.resolve(__dirname, "fixtures/classic-to-nested");
 
-  entries.forEach(async function(entry) {
-    it(`should migrate ${entry} fixture properly`, async function() {
-      var fixturePath = path.join(fixturesPath, entry);
-      var input = require(fixturePath + "/input");
-      var expected = require(fixturePath + "/output");
-      var migratorConfig = {};
-      try {
-        migratorConfig = require(fixturePath + "/config");
-      } catch (e) {
-        // fixture uses default config...
-      }
+    beforeEach(function() {
+      fse.mkdirsSync(tmpPath);
+    });
 
-      fixturify.writeSync(tmpPath, input);
+    afterEach(function() {
+      fse.removeSync(tmpPath);
+    });
 
-      var migratorOptions = Object.assign(
-        { projectRoot: tmpPath },
-        migratorConfig
-      );
+    var entries = fse.readdirSync(fixturesPath);
 
-      var migrator = new Migrator(migratorOptions);
-      await migrator.execute();
+    entries.forEach(async function(entry) {
+      it(`should migrate ${entry} fixture properly`, async function() {
+        var fixturePath = path.join(fixturesPath, entry);
+        var input = require(fixturePath + "/input");
+        var expected = require(fixturePath + "/output");
+        var migratorConfig = {};
+        try {
+          migratorConfig = require(fixturePath + "/config");
+        } catch (e) {
+          // fixture uses default config...
+        }
 
-      var actual = fixturify.readSync(tmpPath);
-      assertDiff.deepEqual(actual, expected, "the codemod should work as expected");
+        fixturify.writeSync(tmpPath, input);
 
-      await migrator.execute();
-      assertDiff.deepEqual(actual, expected, "the codemod should be idempotent");
+        var migratorOptions = Object.assign(
+          {
+            projectRoot: tmpPath,
+            structure: 'nested'
+          },
+          migratorConfig
+        );
+
+        var migrator = new Migrator(migratorOptions);
+        await migrator.execute();
+
+        var actual = fixturify.readSync(tmpPath);
+        assertDiff.deepEqual(actual, expected, "the codemod should work as expected");
+
+        await migrator.execute();
+        assertDiff.deepEqual(actual, expected, "the codemod should be idempotent");
+      });
     });
   });
 });
-

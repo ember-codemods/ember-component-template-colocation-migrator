@@ -16,6 +16,43 @@ cd your/project/path
 npx github:ember-codemods/ember-component-template-colocation-migrator
 ```
 
+By default, the migrator changes the **classic** component structure to the **flat** component structure.
+
+```
+your-project-name
+├── app
+│   └── components
+│       ├── foo-bar
+│       │   ├── baz.hbs
+│       │   └── baz.js
+│       ├── foo-bar.hbs
+│       └── foo-bar.js
+│   ...
+```
+
+If you want to change from **classic** to **nested**, you can add the `-ns` flag:
+
+```sh
+cd your/project/path
+npx github:ember-codemods/ember-component-template-colocation-migrator -ns
+```
+
+The nested component structure looks like:
+
+```
+your-project-name
+├── app
+│   └── components
+│       └── foo-bar
+│           ├── baz
+│           │   ├── index.hbs
+│           │   └── index.js
+│           ├── index.hbs
+│           └── index.js
+│   ...
+```
+
+
 ### Running Tests
 
  * `npm run test`
