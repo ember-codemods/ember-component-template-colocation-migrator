@@ -29,7 +29,25 @@ module.exports = {
           '// top-level-component.js',
           'Component.extend({ layoutName: "components/layout-name/layout-name-template" });'
         ].join('\n')
-      }
+      },
+
+      // A template imported into multiple component classes
+      'first-repeated-import.js': [
+        '// first-repeated-import.js',
+        'import Component from "@ember/component"',
+        'import { layout } from "@ember-decorators/component";',
+        'import template from "my-addon/templates/components/repeatedly-imported";',
+        '@layout(template)',
+        'export default class FirstRepeatedImport extends Component {}',
+      ].join('\n'),
+      'second-repeated-import.js': [
+        '// second-repeated-import.js',
+        'import Component from "@ember/component"',
+        'import { layout } from "@ember-decorators/component";',
+        'import template from "my-addon/templates/components/repeatedly-imported";',
+        '@layout(template)',
+        'export default class SecondRepeatedImport extends Component {}',
+      ].join('\n'),
     },
 
     templates: {
@@ -76,7 +94,9 @@ module.exports = {
             '{{partial "components/partials/partial-two-template"}}',
             '{{partial "components/partials/partial-three-template"}}'
           ].join('\n')
-        }
+        },
+
+        'repeatedly-imported.hbs': '{{!-- repeatedly-imported.hbs --}}',
       }
     }
   }

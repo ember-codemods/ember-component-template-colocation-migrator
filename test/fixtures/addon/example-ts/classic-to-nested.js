@@ -1,12 +1,12 @@
 module.exports = {
-  app: {
+  addon: {
     'app.js': '// app',
 
     components: {
       // A standalone component
       'top-level-component': {
         'index.hbs': '{{!-- top-level-component.hbs --}}',
-        'index.js': '// top-level-component.js',
+        'index.ts': '// top-level-component.ts',
       },
 
       // A template-only component
@@ -17,13 +17,13 @@ module.exports = {
       // A nested component
       'parent-component': {
         'index.hbs': '{{!-- parent-component.hbs --}}',
-        'index.js': '// parent-component.js',
+        'index.ts': '// parent-component.ts',
         'child-component': {
           'index.hbs': '{{!-- parent-component/child-component.hbs --}}',
-          'index.js': '// parent-component/child-component.js',
+          'index.ts': '// parent-component/child-component.ts',
           'grandchild-component': {
             'index.hbs': '{{!-- parent-component/child-component/grandchild-component.hbs --}}',
-            'index.js': '// parent-component/child-component/grandchild-component.js'
+            'index.ts': '// parent-component/child-component/grandchild-component.ts'
           }
         }
       },
@@ -32,20 +32,20 @@ module.exports = {
       nested1: {
         'nested-component': {
           'index.hbs': '{{!-- nested1/nested-component.hbs --}}',
-          'index.js': '// nested1/nested-component.js',
+          'index.ts': '// nested1/nested-component.ts',
         },
         nested2: {
           'super-nested-component': {
             'index.hbs': '{{!-- nested1/nested2/super-nested-component.hbs --}}',
-            'index.js': '// nested1/nested2/super-nested-component.js'
+            'index.ts': '// nested1/nested2/super-nested-component.ts'
           }
         }
       },
 
       // A component with layoutName
       'layout-name': {
-        'has-layout-name.js': [
-          '// top-level-component.js',
+        'has-layout-name.ts': [
+          '// top-level-component.ts',
           'Component.extend({ layoutName: "components/layout-name/layout-name-template" });'
         ].join('\n')
       },
