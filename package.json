@@ -2,19 +2,22 @@
   "name": "ember-component-template-colocation-migrator",
   "version": "1.0.0",
   "description": "A codemod that moves your component .hbs files to be co-located with their .js",
-  "author": "Gavin Joyce <gavinjoyce@gmail.com>",
+  "homepage": "https://github.com/ember-codemods/ember-component-template-colocation-migrator#readme",
+  "bugs": {
+    "url": "https://github.com/ember-codemods/ember-component-template-colocation-migrator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ember-codemods/ember-component-template-colocation-migrator.git"
+  },
   "license": "MIT",
+  "author": "Gavin Joyce <gavinjoyce@gmail.com>",
   "main": "lib/index.js",
   "bin": {
     "ember-component-template-colocation-migrator": "./bin/ember-component-template-colocation-migrator"
   },
   "scripts": {
     "test": "mocha test/*-test.js test/**/*-test.js"
-  },
-  "devDependencies": {
-    "assert-diff": "^2.0.3",
-    "fixturify": "^1.0.1",
-    "mocha": "^6.1.1"
   },
   "dependencies": {
     "@babel/core": "^7.7.5",
@@ -30,12 +33,29 @@
     "remove-empty-directories": "^0.0.1",
     "yargs": "^15.3.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GavinJoyce/ember-component-template-colocation-migrator.git"
+  "devDependencies": {
+    "assert-diff": "^2.0.3",
+    "fixturify": "^1.0.1",
+    "mocha": "^6.1.1",
+    "release-it": "^13.6.0",
+    "release-it-lerna-changelog": "^2.3.0"
   },
-  "bugs": {
-    "url": "https://github.com/GavinJoyce/ember-component-template-colocation-migrator/issues"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
-  "homepage": "https://github.com/GavinJoyce/ember-component-template-colocation-migrator#readme"
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
+  }
 }
