@@ -11,25 +11,25 @@ module.exports = {
       'parent-component': {
         'child-component.ts': '// parent-component/child-component.ts',
         'child-component': {
-          'grandchild-component.ts': '// parent-component/child-component/grandchild-component.ts'
-        }
+          'grandchild-component.ts': '// parent-component/child-component/grandchild-component.ts',
+        },
       },
 
       // Another nested component
       nested1: {
         'nested-component.ts': '// nested1/nested-component.ts',
         nested2: {
-          'super-nested-component.ts': '// nested1/nested2/super-nested-component.ts'
-        }
+          'super-nested-component.ts': '// nested1/nested2/super-nested-component.ts',
+        },
       },
 
       // A component with layoutName
       'layout-name': {
         'has-layout-name.ts': [
           '// top-level-component.ts',
-          'Component.extend({ layoutName: "components/layout-name/layout-name-template" });'
-        ].join('\n')
-      }
+          'Component.extend({ layoutName: "components/layout-name/layout-name-template" });',
+        ].join('\n'),
+      },
     },
 
     templates: {
@@ -47,25 +47,26 @@ module.exports = {
         'parent-component': {
           'child-component.hbs': '{{!-- parent-component/child-component.hbs --}}',
           'child-component': {
-            'grandchild-component.hbs': '{{!-- parent-component/child-component/grandchild-component.hbs --}}'
-          }
+            'grandchild-component.hbs':
+              '{{!-- parent-component/child-component/grandchild-component.hbs --}}',
+          },
         },
 
         // Another nested component
         nested1: {
           'nested-component.hbs': '{{!-- nested1/nested-component.hbs --}}',
           nested2: {
-            'super-nested-component.hbs': '{{!-- nested1/nested2/super-nested-component.hbs --}}'
-          }
+            'super-nested-component.hbs': '{{!-- nested1/nested2/super-nested-component.hbs --}}',
+          },
         },
 
         // A component with layoutName
         'layout-name': {
-          'layout-name-template.hbs': '{{!-- layout-name-template.hbs --}}'
+          'layout-name-template.hbs': '{{!-- layout-name-template.hbs --}}',
         },
 
         // A partial template
-        'partials': {
+        partials: {
           'partial-one-template.hbs': '{{!-- partial-one-template.hbs --}}',
           'partial-two-template.hbs': '{{!-- partial-two-template.hbs --}}',
           '-partial-three-template.hbs': '{{!-- partial-three-template.hbs --}}',
@@ -74,10 +75,10 @@ module.exports = {
             '{{!-- with-partial.hbs --}}',
             '{{partial "components/partials/partial-one-template"}}',
             '{{partial "components/partials/partial-two-template"}}',
-            '{{partial "components/partials/partial-three-template"}}'
-          ].join('\n')
-        }
-      }
-    }
-  }
+            '{{partial "components/partials/partial-three-template"}}',
+          ].join('\n'),
+        },
+      },
+    },
+  },
 };

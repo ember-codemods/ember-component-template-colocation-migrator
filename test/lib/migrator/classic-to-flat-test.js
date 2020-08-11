@@ -6,19 +6,18 @@ const Migrator = require('../../../lib/migrator');
 
 assertDiff.options.strict = true;
 
-describe('structure = flat', function() {
-  beforeEach(function() {
+describe('structure = flat', function () {
+  beforeEach(function () {
     this.tmpPath = 'tmp/process-files';
     fse.mkdirsSync(this.tmpPath);
   });
 
-  afterEach(function() {
+  afterEach(function () {
     fse.removeSync(this.tmpPath);
   });
 
-
-  describe('For an app with component classes written in JavaScript', function() {
-    beforeEach(function() {
+  describe('For an app with component classes written in JavaScript', function () {
+    beforeEach(function () {
       const fixturePath = path.resolve(__dirname, '../../fixtures/app/example-js');
 
       // Find input and output files
@@ -31,12 +30,11 @@ describe('structure = flat', function() {
       // Create an instance of the Migrator class
       this.migrator = new Migrator({
         projectRoot: this.tmpPath,
-        structure: 'flat'
+        structure: 'flat',
       });
     });
 
-
-    it('Codemod works as expected', async function() {
+    it('Codemod works as expected', async function () {
       await this.migrator.execute();
 
       const actualOutput = fixturify.readSync(this.tmpPath);
@@ -44,8 +42,7 @@ describe('structure = flat', function() {
       assertDiff.deepEqual(actualOutput, this.expectedOutput);
     });
 
-
-    it('Codemod is idempotent', async function() {
+    it('Codemod is idempotent', async function () {
       await this.migrator.execute();
       await this.migrator.execute();
 
@@ -55,9 +52,8 @@ describe('structure = flat', function() {
     });
   });
 
-
-  describe('For an app with component classes written in TypeScript', function() {
-    beforeEach(function() {
+  describe('For an app with component classes written in TypeScript', function () {
+    beforeEach(function () {
       const fixturePath = path.resolve(__dirname, '../../fixtures/app/example-ts');
 
       // Find input and output files
@@ -70,12 +66,11 @@ describe('structure = flat', function() {
       // Create an instance of the Migrator class
       this.migrator = new Migrator({
         projectRoot: this.tmpPath,
-        structure: 'flat'
+        structure: 'flat',
       });
     });
 
-
-    it('Codemod works as expected', async function() {
+    it('Codemod works as expected', async function () {
       await this.migrator.execute();
 
       const actualOutput = fixturify.readSync(this.tmpPath);
@@ -83,8 +78,7 @@ describe('structure = flat', function() {
       assertDiff.deepEqual(actualOutput, this.expectedOutput);
     });
 
-
-    it('Codemod is idempotent', async function() {
+    it('Codemod is idempotent', async function () {
       await this.migrator.execute();
       await this.migrator.execute();
 
@@ -94,8 +88,8 @@ describe('structure = flat', function() {
     });
   });
 
-  describe('For an addon with component classes written in JavaScript', function() {
-    beforeEach(function() {
+  describe('For an addon with component classes written in JavaScript', function () {
+    beforeEach(function () {
       const fixturePath = path.resolve(__dirname, '../../fixtures/addon/example-js');
 
       // Find input and output files
@@ -108,12 +102,11 @@ describe('structure = flat', function() {
       // Create an instance of the Migrator class
       this.migrator = new Migrator({
         projectRoot: this.tmpPath,
-        structure: 'flat'
+        structure: 'flat',
       });
     });
 
-
-    it('Codemod works as expected', async function() {
+    it('Codemod works as expected', async function () {
       await this.migrator.execute();
 
       const actualOutput = fixturify.readSync(this.tmpPath);
@@ -121,8 +114,7 @@ describe('structure = flat', function() {
       assertDiff.deepEqual(actualOutput, this.expectedOutput);
     });
 
-
-    it('Codemod is idempotent', async function() {
+    it('Codemod is idempotent', async function () {
       await this.migrator.execute();
       await this.migrator.execute();
 
@@ -132,9 +124,8 @@ describe('structure = flat', function() {
     });
   });
 
-
-  describe('For an addon with component classes written in TypeScript', function() {
-    beforeEach(function() {
+  describe('For an addon with component classes written in TypeScript', function () {
+    beforeEach(function () {
       const fixturePath = path.resolve(__dirname, '../../fixtures/addon/example-ts');
 
       // Find input and output files
@@ -147,12 +138,11 @@ describe('structure = flat', function() {
       // Create an instance of the Migrator class
       this.migrator = new Migrator({
         projectRoot: this.tmpPath,
-        structure: 'flat'
+        structure: 'flat',
       });
     });
 
-
-    it('Codemod works as expected', async function() {
+    it('Codemod works as expected', async function () {
       await this.migrator.execute();
 
       const actualOutput = fixturify.readSync(this.tmpPath);
@@ -160,8 +150,7 @@ describe('structure = flat', function() {
       assertDiff.deepEqual(actualOutput, this.expectedOutput);
     });
 
-
-    it('Codemod is idempotent', async function() {
+    it('Codemod is idempotent', async function () {
       await this.migrator.execute();
       await this.migrator.execute();
 
