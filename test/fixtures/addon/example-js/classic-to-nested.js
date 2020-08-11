@@ -65,7 +65,8 @@ module.exports = {
       'layout-property-classic': {
         'index.js': [
           'import Component from "@ember/component";',
-          'export default Component.extend({});',
+          'import SomeMixin from "my-addon/mixins/whatever";',
+          'export default Component.extend(SomeMixin, {});',
         ].join('\n'),
         'index.hbs': '{{!-- layout-property-classic.hbs --}}',
       },
@@ -87,16 +88,17 @@ module.exports = {
       },
 
       // A template imported into multiple component classes
-      'first-repeated-import': [
-        '// first-repeated-import.ts',
+      'first-repeated-import.js': [
+        '// first-repeated-import.js',
         'import Component from "@ember/component"',
         'import { layout } from "@ember-decorators/component";',
         'import template from "my-addon/templates/components/repeatedly-imported";',
         '@layout(template)',
         'export default class FirstRepeatedImport extends Component {}',
       ].join('\n'),
-      'second-repeated-import': [
-        '// second-repeated-import.ts',
+
+      'second-repeated-import.js': [
+        '// second-repeated-import.js',
         'import Component from "@ember/component"',
         'import { layout } from "@ember-decorators/component";',
         'import template from "my-addon/templates/components/repeatedly-imported";',

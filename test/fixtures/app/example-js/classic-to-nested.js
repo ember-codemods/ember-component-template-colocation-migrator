@@ -96,9 +96,9 @@ module.exports = {
           'partial-two-template.hbs': '{{!-- partial-two-template.hbs --}}',
           '-partial-three-template.hbs': '{{!-- partial-three-template.hbs --}}',
         },
-      },
 
-      'repeatedly-imported.hbs': '{{!-- repeatedly-imported.hbs --}}',
+        'repeatedly-imported.hbs': '{{!-- repeatedly-imported.hbs --}}',
+      },
     },
   },
 };

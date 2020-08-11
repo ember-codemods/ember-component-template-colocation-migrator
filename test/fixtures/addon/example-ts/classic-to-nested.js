@@ -50,6 +50,49 @@ module.exports = {
         ].join('\n'),
       },
 
+      'layout-decorator': {
+        'index.hbs': '{{!-- layout-decorator-template.hbs --}}',
+        'index.ts': [
+          'import Component from "@ember/component";',
+          'export default class LayoutDecorator extends Component {}',
+        ].join('\n'),
+      },
+
+      'layout-property-classic': {
+        'index.hbs': '{{!-- layout-property-classic.hbs --}}',
+        'index.ts': [
+          'import Component from "@ember/component";',
+          'import SomeMixin from "my-addon/mixins/whatever";',
+          'export default Component.extend(SomeMixin, {});',
+        ].join('\n'),
+      },
+
+      'layout-property-native': {
+        'index.hbs': '{{!-- layout-property-native.hbs --}}',
+        'index.ts': [
+          'import Component from "@ember/component";',
+          'export default class NativeProperty extends Component {}',
+        ].join('\n'),
+      },
+
+      // A template imported into multiple component classes
+      'first-repeated-import.ts': [
+        '// first-repeated-import.ts',
+        'import Component from "@ember/component"',
+        'import { layout } from "@ember-decorators/component";',
+        'import template from "my-addon/templates/components/repeatedly-imported";',
+        '@layout(template)',
+        'export default class FirstRepeatedImport extends Component {}',
+      ].join('\n'),
+      'second-repeated-import.ts': [
+        '// second-repeated-import.ts',
+        'import Component from "@ember/component"',
+        'import { layout } from "@ember-decorators/component";',
+        'import template from "my-addon/templates/components/repeatedly-imported";',
+        '@layout(template)',
+        'export default class SecondRepeatedImport extends Component {}',
+      ].join('\n'),
+
       // A component with partial
       partials: {
         'with-partial': {
@@ -78,6 +121,7 @@ module.exports = {
           'partial-two-template.hbs': '{{!-- partial-two-template.hbs --}}',
           '-partial-three-template.hbs': '{{!-- partial-three-template.hbs --}}',
         },
+        'repeatedly-imported.hbs': '{{!-- repeatedly-imported.hbs --}}',
       },
     },
   },
