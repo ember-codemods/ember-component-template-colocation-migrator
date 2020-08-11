@@ -17,7 +17,8 @@
     "ember-component-template-colocation-migrator": "./bin/ember-component-template-colocation-migrator"
   },
   "scripts": {
-    "test": "mocha test/*-test.js test/**/*-test.js"
+    "lint": "eslint .",
+    "test": "mocha test/**/*-test.js"
   },
   "dependencies": {
     "@babel/core": "^7.7.5",
@@ -36,11 +37,19 @@
   },
   "devDependencies": {
     "assert-diff": "^2.0.3",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "fixturify": "^1.0.1",
     "mocha": "^6.1.1",
+    "prettier": "^2.0.5",
     "recast": "^0.19.1",
     "release-it": "^13.6.5",
     "release-it-lerna-changelog": "^2.3.0"
+  },
+  "engines": {
+    "node": ">= 10"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
