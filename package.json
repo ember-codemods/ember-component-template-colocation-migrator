@@ -36,6 +36,7 @@
     "glob": "^7.1.4",
     "jscodeshift": "^0.10.0",
     "nopt": "^4.0.1",
+    "recast": "^0.19.1",
     "remove-empty-directories": "^0.0.1",
     "yargs": "^15.3.1"
   },
@@ -48,7 +49,6 @@
     "fixturify": "^1.0.1",
     "mocha": "^6.1.1",
     "prettier": "^2.0.5",
-    "recast": "^0.19.1",
     "release-it": "^13.6.5",
     "release-it-lerna-changelog": "^2.3.0"
   },
