@@ -3,6 +3,7 @@ const fse = require('fs-extra');
 const fixturify = require('fixturify');
 const path = require('path');
 const Migrator = require('../../../lib/migrator');
+const { setupConsole, resetConsole } = require('../../helpers');
 
 assertDiff.options.strict = true;
 
@@ -10,10 +11,12 @@ describe('structure = nested', function () {
   beforeEach(function () {
     this.tmpPath = 'tmp/process-files';
     fse.mkdirsSync(this.tmpPath);
+    setupConsole();
   });
 
   afterEach(function () {
     fse.removeSync(this.tmpPath);
+    resetConsole();
   });
 
   describe('For an app with component classes written in JavaScript', function () {
