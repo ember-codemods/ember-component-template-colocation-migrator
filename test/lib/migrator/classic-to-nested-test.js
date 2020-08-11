@@ -1,10 +1,9 @@
-const assertDiff = require('assert-diff');
-const fixturify = require('fixturify');
+//const assertDiff = require('assert-diff');
 const fse = require('fs-extra');
-const path = require('path');
-const Migrator = require('../../../lib/migrator');
+//const path = require('path');
+//const Migrator = require('../../../lib/migrator');
 
-assertDiff.options.strict = true;
+//assertDiff.options.strict = true;
 
 describe('structure = nested', function () {
   beforeEach(function () {
