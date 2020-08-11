@@ -17,80 +17,157 @@ describe('structure = nested', function() {
   });
 
 
-  describe('For an app with component classes written in JavaScript', function() {
-    beforeEach(function() {
-      const fixturePath = path.resolve(__dirname, '../../fixtures/example-js');
+  // describe('For an app with component classes written in JavaScript', function() {
+  //   beforeEach(function() {
+  //     const fixturePath = path.resolve(__dirname, '../../fixtures/app/example-js');
 
-      // Find input and output files
-      const input = require(`${fixturePath}/input`);
-      this.expectedOutput = require(`${fixturePath}/classic-to-nested`);
+  //     // Find input and output files
+  //     const input = require(`${fixturePath}/input`);
+  //     this.expectedOutput = require(`${fixturePath}/classic-to-nested`);
 
-      // Copy the input file to the temporary folder
-      fixturify.writeSync(this.tmpPath, input);
+  //     // Copy the input file to the temporary folder
+  //     fixturify.writeSync(this.tmpPath, input);
 
-      // Create an instance of the Migrator class
-      this.migrator = new Migrator({
-        projectRoot: this.tmpPath,
-        structure: 'nested'
-      });
-    });
-
-
-    it('Codemod works as expected', async function() {
-      await this.migrator.execute();
-
-      const actualOutput = fixturify.readSync(this.tmpPath);
-
-      assertDiff.deepEqual(actualOutput, this.expectedOutput);
-    });
+  //     // Create an instance of the Migrator class
+  //     this.migrator = new Migrator({
+  //       projectRoot: this.tmpPath,
+  //       structure: 'nested'
+  //     });
+  //   });
 
 
-    it('Codemod is idempotent', async function() {
-      await this.migrator.execute();
-      await this.migrator.execute();
+  //   it('Codemod works as expected', async function() {
+  //     await this.migrator.execute();
 
-      const actualOutput = fixturify.readSync(this.tmpPath);
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
 
-      assertDiff.deepEqual(actualOutput, this.expectedOutput);
-    });
-  });
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
 
 
-  describe('For an app with component classes written in TypeScript', function() {
-    beforeEach(function() {
-      const fixturePath = path.resolve(__dirname, '../../fixtures/example-ts');
+  //   it('Codemod is idempotent', async function() {
+  //     await this.migrator.execute();
+  //     await this.migrator.execute();
 
-      // Find input and output files
-      const input = require(`${fixturePath}/input`);
-      this.expectedOutput = require(`${fixturePath}/classic-to-nested`);
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
 
-      // Copy the input file to the temporary folder
-      fixturify.writeSync(this.tmpPath, input);
-
-      // Create an instance of the Migrator class
-      this.migrator = new Migrator({
-        projectRoot: this.tmpPath,
-        structure: 'nested'
-      });
-    });
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
+  // });
 
 
-    it('Codemod works as expected', async function() {
-      await this.migrator.execute();
+  // describe('For an app with component classes written in TypeScript', function() {
+  //   beforeEach(function() {
+  //     const fixturePath = path.resolve(__dirname, '../../fixtures/app/example-ts');
 
-      const actualOutput = fixturify.readSync(this.tmpPath);
+  //     // Find input and output files
+  //     const input = require(`${fixturePath}/input`);
+  //     this.expectedOutput = require(`${fixturePath}/classic-to-nested`);
 
-      assertDiff.deepEqual(actualOutput, this.expectedOutput);
-    });
+  //     // Copy the input file to the temporary folder
+  //     fixturify.writeSync(this.tmpPath, input);
+
+  //     // Create an instance of the Migrator class
+  //     this.migrator = new Migrator({
+  //       projectRoot: this.tmpPath,
+  //       structure: 'nested'
+  //     });
+  //   });
 
 
-    it('Codemod is idempotent', async function() {
-      await this.migrator.execute();
-      await this.migrator.execute();
+  //   it('Codemod works as expected', async function() {
+  //     await this.migrator.execute();
 
-      const actualOutput = fixturify.readSync(this.tmpPath);
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
 
-      assertDiff.deepEqual(actualOutput, this.expectedOutput);
-    });
-  });
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
+
+
+  //   it('Codemod is idempotent', async function() {
+  //     await this.migrator.execute();
+  //     await this.migrator.execute();
+
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
+
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
+  // });
+
+  // describe('For an addon with component classes written in JavaScript', function() {
+  //   beforeEach(function() {
+  //     const fixturePath = path.resolve(__dirname, '../../fixtures/addon/example-js');
+
+  //     // Find input and output files
+  //     const input = require(`${fixturePath}/input`);
+  //     this.expectedOutput = require(`${fixturePath}/classic-to-nested`);
+
+  //     // Copy the input file to the temporary folder
+  //     fixturify.writeSync(this.tmpPath, input);
+
+  //     // Create an instance of the Migrator class
+  //     this.migrator = new Migrator({
+  //       projectRoot: this.tmpPath,
+  //       structure: 'nested'
+  //     });
+  //   });
+
+
+  //   it('Codemod works as expected', async function() {
+  //     await this.migrator.execute();
+
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
+
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
+
+
+  //   it('Codemod is idempotent', async function() {
+  //     await this.migrator.execute();
+  //     await this.migrator.execute();
+
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
+
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
+  // });
+
+
+  // describe('For an addon with component classes written in TypeScript', function() {
+  //   beforeEach(function() {
+  //     const fixturePath = path.resolve(__dirname, '../../fixtures/addon/example-ts');
+
+  //     // Find input and output files
+  //     const input = require(`${fixturePath}/input`);
+  //     this.expectedOutput = require(`${fixturePath}/classic-to-nested`);
+
+  //     // Copy the input file to the temporary folder
+  //     fixturify.writeSync(this.tmpPath, input);
+
+  //     // Create an instance of the Migrator class
+  //     this.migrator = new Migrator({
+  //       projectRoot: this.tmpPath,
+  //       structure: 'nested'
+  //     });
+  //   });
+
+
+  //   it('Codemod works as expected', async function() {
+  //     await this.migrator.execute();
+
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
+
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
+
+
+  //   it('Codemod is idempotent', async function() {
+  //     await this.migrator.execute();
+  //     await this.migrator.execute();
+
+  //     const actualOutput = fixturify.readSync(this.tmpPath);
+
+  //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
+  //   });
+  // });
 });

@@ -1,5 +1,5 @@
 module.exports = {
-  app: {
+  addon: {
     'app.js': '// app',
 
     components: {
@@ -48,7 +48,45 @@ module.exports = {
           '{{partial "components/partials/partial-two-template"}}',
           '{{partial "components/partials/partial-three-template"}}'
         ].join('\n')
-      }
+      },
+
+      'layout-property-classic.js': [
+        'import Component from "@ember/component";',
+        'import SomeMixin from "my-addon/mixins/whatever";',
+        'export default Component.extend(SomeMixin, {});',
+      ].join('\n'),
+      'layout-property-classic.hbs': '{{!-- layout-property-classic.hbs --}}',
+
+      'layout-property-native.js': [
+        'import Component from "@ember/component";',
+        'export default class NativeProperty extends Component {}',
+      ].join('\n'),
+      'layout-property-native.hbs': '{{!-- layout-property-native.hbs --}}',
+
+      'layout-decorator.js': [
+        'import Component from "@ember/component";',
+        'export default class LayoutDecorator extends Component {}',
+      ].join('\n'),
+
+      'layout-decorator.hbs': '{{!-- layout-decorator-template.hbs --}}',
+
+      // A template imported into multiple component classes
+      'first-repeated-import.js': [
+        '// first-repeated-import.js',
+        'import Component from "@ember/component"',
+        'import { layout } from "@ember-decorators/component";',
+        'import template from "my-addon/templates/components/repeatedly-imported";',
+        '@layout(template)',
+        'export default class FirstRepeatedImport extends Component {}',
+      ].join('\n'),
+      'second-repeated-import.js': [
+        '// second-repeated-import.js',
+        'import Component from "@ember/component"',
+        'import { layout } from "@ember-decorators/component";',
+        'import template from "my-addon/templates/components/repeatedly-imported";',
+        '@layout(template)',
+        'export default class SecondRepeatedImport extends Component {}',
+      ].join('\n'),
     },
 
     templates: {
@@ -65,7 +103,9 @@ module.exports = {
           'partial-one-template.hbs': '{{!-- partial-one-template.hbs --}}',
           'partial-two-template.hbs': '{{!-- partial-two-template.hbs --}}',
           '-partial-three-template.hbs': '{{!-- partial-three-template.hbs --}}'
-        }
+        },
+
+        'repeatedly-imported.hbs': '{{!-- repeatedly-imported.hbs --}}',
       }
     }
   },
