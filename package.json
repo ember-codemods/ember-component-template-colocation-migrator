@@ -16,6 +16,10 @@
   "bin": {
     "ember-component-template-colocation-migrator": "./bin/ember-component-template-colocation-migrator"
   },
+  "files": [
+    "bin/",
+    "lib/"
+  ],
   "scripts": {
     "lint": "eslint .",
     "test": "mocha test/**/*-test.js"
