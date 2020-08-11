@@ -39,7 +39,7 @@
     "fixturify": "^1.0.1",
     "mocha": "^6.1.1",
     "recast": "^0.19.1",
-    "release-it": "^13.6.0",
+    "release-it": "^13.6.5",
     "release-it-lerna-changelog": "^2.3.0"
   },
   "publishConfig": {
