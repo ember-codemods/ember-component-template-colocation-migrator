@@ -6,16 +6,15 @@ const Migrator = require('../../../lib/migrator');
 
 assertDiff.options.strict = true;
 
-describe('structure = nested', function() {
-  beforeEach(function() {
+describe('structure = nested', function () {
+  beforeEach(function () {
     this.tmpPath = 'tmp/process-files';
     fse.mkdirsSync(this.tmpPath);
   });
 
-  afterEach(function() {
+  afterEach(function () {
     fse.removeSync(this.tmpPath);
   });
-
 
   // describe('For an app with component classes written in JavaScript', function() {
   //   beforeEach(function() {
@@ -35,7 +34,6 @@ describe('structure = nested', function() {
   //     });
   //   });
 
-
   //   it('Codemod works as expected', async function() {
   //     await this.migrator.execute();
 
@@ -43,7 +41,6 @@ describe('structure = nested', function() {
 
   //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
   //   });
-
 
   //   it('Codemod is idempotent', async function() {
   //     await this.migrator.execute();
@@ -54,7 +51,6 @@ describe('structure = nested', function() {
   //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
   //   });
   // });
-
 
   // describe('For an app with component classes written in TypeScript', function() {
   //   beforeEach(function() {
@@ -74,7 +70,6 @@ describe('structure = nested', function() {
   //     });
   //   });
 
-
   //   it('Codemod works as expected', async function() {
   //     await this.migrator.execute();
 
@@ -82,7 +77,6 @@ describe('structure = nested', function() {
 
   //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
   //   });
-
 
   //   it('Codemod is idempotent', async function() {
   //     await this.migrator.execute();
@@ -112,7 +106,6 @@ describe('structure = nested', function() {
   //     });
   //   });
 
-
   //   it('Codemod works as expected', async function() {
   //     await this.migrator.execute();
 
@@ -120,7 +113,6 @@ describe('structure = nested', function() {
 
   //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
   //   });
-
 
   //   it('Codemod is idempotent', async function() {
   //     await this.migrator.execute();
@@ -131,7 +123,6 @@ describe('structure = nested', function() {
   //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
   //   });
   // });
-
 
   // describe('For an addon with component classes written in TypeScript', function() {
   //   beforeEach(function() {
@@ -151,7 +142,6 @@ describe('structure = nested', function() {
   //     });
   //   });
 
-
   //   it('Codemod works as expected', async function() {
   //     await this.migrator.execute();
 
@@ -159,7 +149,6 @@ describe('structure = nested', function() {
 
   //     assertDiff.deepEqual(actualOutput, this.expectedOutput);
   //   });
-
 
   //   it('Codemod is idempotent', async function() {
   //     await this.migrator.execute();
