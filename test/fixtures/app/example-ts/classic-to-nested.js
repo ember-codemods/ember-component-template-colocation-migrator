@@ -46,6 +46,7 @@ module.exports = {
       'layout-name': {
         'has-layout-name.ts': [
           '// top-level-component.ts',
+          'interface IArgs {key: string}',
           'Component.extend({ layoutName: "components/layout-name/layout-name-template" });',
         ].join('\n'),
       },
