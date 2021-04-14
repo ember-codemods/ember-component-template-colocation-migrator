@@ -22,11 +22,11 @@ module.exports = {
           'super-nested-component.ts': '// nested1/nested2/super-nested-component.ts',
         },
       },
-
       // A component with layoutName
       'layout-name': {
         'has-layout-name.ts': [
           '// top-level-component.ts',
+          'interface IArgs {key: string}',
           'Component.extend({ layoutName: "components/layout-name/layout-name-template" });',
         ].join('\n'),
       },
