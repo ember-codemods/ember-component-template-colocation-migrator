@@ -1,6 +1,6 @@
 {
   "name": "ember-component-template-colocation-migrator",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A codemod that moves your component .hbs files to be co-located with their .js",
   "homepage": "https://github.com/ember-codemods/ember-component-template-colocation-migrator#readme",
   "bugs": {

@@ -1,3 +1,14 @@
+## v1.2.0 (2021-04-14)
+
+#### :rocket: Enhancement
+* [#22](https://github.com/ember-codemods/ember-component-template-colocation-migrator/pull/22) Support having private fields ([@lelea2](https://github.com/lelea2))
+* [#23](https://github.com/ember-codemods/ember-component-template-colocation-migrator/pull/23) Use correct babel configuration for typescript ([@donaldwasserman](https://github.com/donaldwasserman))
+
+#### Committers: 2
+- Donald Wasserman ([@donaldwasserman](https://github.com/donaldwasserman))
+- Khanh Dao ([@lelea2](https://github.com/lelea2))
+
+
 ## v1.1.0 (2020-08-11)
 
 #### :rocket: Enhancement
